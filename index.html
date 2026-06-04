@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>新宮町 合成人口ペルソナパネル</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #17212b;
+      background: #eef2f5;
+      line-height: 1.7;
+    }
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 24px 64px;
+    }
+    header {
+      min-height: 360px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+      gap: 28px;
+      align-items: center;
+      padding: 36px 0 30px;
+    }
+    h1 {
+      margin: 0 0 14px;
+      font-size: 46px;
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 34px 0 12px;
+      font-size: 21px;
+      letter-spacing: 0;
+    }
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 24px;
+      margin-right: 10px;
+      border-radius: 999px;
+      background: #0f5c8c;
+      vertical-align: -5px;
+    }
+    p {
+      margin: 0 0 12px;
+    }
+    section {
+      margin-top: 28px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding: 6px 10px;
+      border: 1px solid #c7d8e4;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #0f5c8c;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .lead {
+      font-size: 20px;
+      color: #374957;
+      max-width: 780px;
+    }
+    .sublead {
+      margin-top: 12px;
+      color: #526270;
+      max-width: 760px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid #dfe5ec;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 12px 28px rgba(31, 47, 63, 0.06);
+    }
+    .wide-card {
+      background: #ffffff;
+      border: 1px solid #dfe5ec;
+      border-radius: 8px;
+      padding: 20px 22px;
+      margin: 14px 0;
+      box-shadow: 0 12px 28px rgba(31, 47, 63, 0.06);
+    }
+    .number {
+      display: block;
+      font-size: 28px;
+      font-weight: 700;
+      color: #0f5c8c;
+      line-height: 1.2;
+    }
+    .label {
+      display: block;
+      margin-top: 4px;
+      color: #526270;
+      font-size: 14px;
+    }
+    .hero-panel {
+      background: #ffffff;
+      border: 1px solid #d9e2ea;
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 18px 40px rgba(23, 33, 43, 0.10);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .hero-stat {
+      min-height: 118px;
+      padding: 16px;
+      border: 1px solid #e1e7ed;
+      border-radius: 8px;
+      background: #f8fafb;
+    }
+    .hero-stat.main {
+      grid-column: span 2;
+      background: #0f5c8c;
+      color: #ffffff;
+      border-color: #0f5c8c;
+    }
+    .hero-stat .value {
+      display: block;
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.12;
+    }
+    .hero-stat.main .value {
+      font-size: 42px;
+    }
+    .hero-stat .caption {
+      display: block;
+      margin-top: 8px;
+      color: #5d6c78;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .hero-stat.main .caption {
+      color: #d9ecf7;
+    }
+    .method-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 22px 0 8px;
+    }
+    .method-item {
+      background: #ffffff;
+      border: 1px solid #dfe5ec;
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 12px 28px rgba(31, 47, 63, 0.06);
+    }
+    .method-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #0f5c8c;
+      font-size: 18px;
+    }
+    .segment-map {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .segment-pill {
+      background: #ffffff;
+      border: 1px solid #dfe5ec;
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 78px;
+    }
+    .segment-pill span {
+      display: block;
+      color: #0f5c8c;
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 1.1;
+    }
+    .segment-pill small {
+      display: block;
+      margin-top: 6px;
+      color: #526270;
+      line-height: 1.35;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      border: 1px solid #dfe5ec;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #e6ebf0;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #edf2f7;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    tr:last-child td {
+      border-bottom: 0;
+    }
+    .note {
+      background: #fff8e6;
+      border: 1px solid #e5d19a;
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .strong-note {
+      background: #e9f5ef;
+      border: 1px solid #b9d8c7;
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin: 16px 0;
+    }
+    .quote {
+      background: #0f5c8c;
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 22px 24px;
+      margin: 12px 0;
+      font-size: 20px;
+      line-height: 1.65;
+      box-shadow: 0 18px 40px rgba(15, 92, 140, 0.18);
+    }
+    .qa-table th {
+      width: 280px;
+      white-space: normal;
+    }
+    @media (max-width: 900px) {
+      header {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 34px;
+      }
+      .method-strip,
+      .segment-map {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media print {
+      body {
+        background: #ffffff;
+      }
+      main {
+        max-width: none;
+        padding: 12mm;
+      }
+      .card,
+      .wide-card,
+      .method-item,
+      .hero-panel {
+        box-shadow: none;
+      }
+    }
+    .steps {
+      counter-reset: step;
+      display: grid;
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .step {
+      counter-increment: step;
+      background: #ffffff;
+      border: 1px solid #dfe5ec;
+      border-radius: 8px;
+      padding: 14px 16px 14px 48px;
+      position: relative;
+    }
+    .step::before {
+      content: counter(step);
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #0f5c8c;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      line-height: 22px;
+    }
+    ul {
+      margin: 8px 0 0 22px;
+      padding: 0;
+    }
+    li {
+      margin: 4px 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <div class="eyebrow">Startup Weekend Shingu / AI Validation Panel</div>
+        <h1>新宮町 合成人口ペルソナパネル</h1>
+        <p class="lead">新宮町の実人口構成を土台に、年齢・性別・世帯・生活文脈を持つ仮想住民パネルを作成し、サービス案に対する反応差をAIで検証するための仕組みです。</p>
+        <p class="sublead">実在者へのアンケート結果ではありません。限られた時間で、誰に刺さり、誰が払う可能性があり、どこで拒否されるかを広く探索するための「仮説検証の補助線」として使います。</p>
+      </div>
+      <aside class="hero-panel" aria-label="主要数字">
+        <div class="hero-stats">
+          <div class="hero-stat main">
+            <span class="value">32,336通り</span>
+            <span class="caption">主要15軸で実際に出現している生活者パターン</span>
+          </div>
+          <div class="hero-stat">
+            <span class="value">32,974人</span>
+            <span class="caption">新宮町全人口に合わせた合成人口</span>
+          </div>
+          <div class="hero-stat">
+            <span class="value">14,581世帯</span>
+            <span class="caption">世帯IDで家族・意思決定を接続</span>
+          </div>
+          <div class="hero-stat">
+            <span class="value">16,357人</span>
+            <span class="caption">22〜60歳の重点検証対象</span>
+          </div>
+          <div class="hero-stat">
+            <span class="value">約3,091億</span>
+            <span class="caption">主要15軸の理論上の組み合わせ上限</span>
+          </div>
+        </div>
+      </aside>
+    </header>
+
+    <section>
+      <h2>なぜこの方法を使うのか</h2>
+      <div class="strong-note">
+        54時間のStartup Weekendでは、十分な数の住民に偏りなく聞くことは難しいです。街頭で数十人に聞いても、場所・時間・声をかけやすい人に回答が偏ります。そこで、まず新宮町の人口構成に合わせた合成人口パネルで反応の広がりを見て、どの層に絞ってMVPを作るべきかを判断します。
+      </div>
+      <p>この方法の目的は、AIに正解を出させることではありません。小さな声や見えにくい生活者も含めて、複数のセグメントから見た反応・不安・支払い意思・拒否理由を比較し、次に検証すべき相手を明確にすることです。</p>
+      <div class="method-strip" aria-label="検証方法の3層">
+        <div class="method-item">
+          <strong>1. 実人口ベース</strong>
+          年齢・性別・人口規模は公開人口データに合わせ、AIが自由に作った架空の町にしない。
+        </div>
+        <div class="method-item">
+          <strong>2. 構造推定</strong>
+          世帯、親子、介護、保護者決定など、実際の意思決定に近い生活文脈を持たせる。
+        </div>
+        <div class="method-item">
+          <strong>3. 反応仮説</strong>
+          利用意向、支払い感度、拒否理由を比較し、MVPで最初に見るべき層を絞る。
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="基本数字">
+      <div class="card">
+        <span class="number">32,974人</span>
+        <span class="label">新宮町の年齢・性別構成に合わせた全人口版</span>
+      </div>
+      <div class="card">
+        <span class="number">16,357人</span>
+        <span class="label">購買・利用判断を見やすい重点対象</span>
+      </div>
+      <div class="card">
+        <span class="number">14,581世帯</span>
+        <span class="label">夫婦・親子・単身・介護などの文脈を接続</span>
+      </div>
+      <div class="card">
+        <span class="number">2.26人</span>
+        <span class="label">平均世帯人数</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>どのような構成か</h2>
+      <div class="wide-card">
+        <p>パネルは個人単位だけではなく、世帯単位でも見られるようにしています。たとえば、子ども向けサービスでは本人ではなく保護者が意思決定者になります。高齢者向けサービスでは、本人だけでなく子世代や介護者が支払い・導入判断に関わる場合があります。</p>
+        <p>そのため、年齢や性別だけでなく、世帯タイプ、子どもの有無、教育段階、介護入口、通勤、移動手段、デジタル感度、支払い感度、不安点などを付与しています。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>セグメントの組み合わせ数</h2>
+      <p>このパネルは、単に「子育て世帯」「高齢者」といった大きな分類だけで見るものではありません。年齢、世帯、意思決定者、職業、移動、支払い感度、不安点などを組み合わせて、かなり細かい生活者パターンを比較できます。</p>
+      <div class="segment-map" aria-label="セグメント軸">
+        <div class="segment-pill"><span>10</span><small>年齢帯</small></div>
+        <div class="segment-pill"><span>7</span><small>世帯タイプ</small></div>
+        <div class="segment-pill"><span>8</span><small>意思決定者</small></div>
+        <div class="segment-pill"><span>18</span><small>職業</small></div>
+        <div class="segment-pill"><span>11</span><small>通勤・生活圏</small></div>
+        <div class="segment-pill"><span>4</span><small>移動手段</small></div>
+        <div class="segment-pill"><span>4</span><small>支払い感度</small></div>
+        <div class="segment-pill"><span>11</span><small>主な悩み</small></div>
+        <div class="segment-pill"><span>6</span><small>不安・拒否理由</small></div>
+        <div class="segment-pill"><span>32,336</span><small>実出現パターン</small></div>
+      </div>
+      <section class="grid" aria-label="セグメント組み合わせ">
+        <div class="card">
+          <span class="number">22軸</span>
+          <span class="label">個人データに付与している主なセグメント軸</span>
+        </div>
+        <div class="card">
+          <span class="number">15軸</span>
+          <span class="label">検証に使いやすい主要組み合わせ軸</span>
+        </div>
+        <div class="card">
+          <span class="number">32,336通り</span>
+          <span class="label">主要15軸で実際に出現している生活者パターン</span>
+        </div>
+        <div class="card">
+          <span class="number">約3,091億通り</span>
+          <span class="label">主要15軸を単純掛け合わせした理論上の上限</span>
+        </div>
+      </section>
+      <div class="note">
+        理論上の組み合わせ数をそのまま使うわけではありません。たとえば0歳の単身世帯や、小学生の経営者のような不自然な組み合わせは入れず、年齢・世帯・意思決定・生活文脈に矛盾しにくい形に制約しています。その結果、実際に出現する組み合わせは32,336通りになっています。
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>セグメント軸</th>
+            <th>分類数</th>
+            <th>例</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>年齢帯</td>
+            <td>10</td>
+            <td>0-5、6-12、13-17、18-21、22-29、30-39、40-49、50-60、61-74、75+</td>
+          </tr>
+          <tr>
+            <td>性別</td>
+            <td>2</td>
+            <td>男性、女性</td>
+          </tr>
+          <tr>
+            <td>世帯タイプ</td>
+            <td>7</td>
+            <td>単身、夫婦のみ、夫婦と子ども、ひとり親と子ども、親と同居、三世代など</td>
+          </tr>
+          <tr>
+            <td>婚姻・子ども</td>
+            <td>4 / 2 / 5</td>
+            <td>既婚、未婚、離別、死別 / 子どもあり・なし / 乳幼児、小学生、中高生など</td>
+          </tr>
+          <tr>
+            <td>意思決定者</td>
+            <td>8</td>
+            <td>本人決定、保護者決定、本人+家族相談、本人+介護者決定など</td>
+          </tr>
+          <tr>
+            <td>職業</td>
+            <td>18</td>
+            <td>会社員、地元事業者、医療/福祉、教育/保育、自営業、学生、年金など</td>
+          </tr>
+          <tr>
+            <td>通勤・移動</td>
+            <td>11 / 4</td>
+            <td>福岡市方面へ通勤、町内勤務、シフト勤務、通勤なし / 車中心、公共交通中心など</td>
+          </tr>
+          <tr>
+            <td>デジタル感度・支払い感度</td>
+            <td>3 / 4</td>
+            <td>高い、普通、低い / 無料低額、月1,000-3,000円、月3,000-10,000円、B2B高便益など</td>
+          </tr>
+          <tr>
+            <td>悩み・不安点</td>
+            <td>11 / 11 / 6</td>
+            <td>時間不足、送迎、家計、介護、集客、人手不足 / 個人情報、価格、操作負担、継続性など</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>何が実データで、何が推定か</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>区分</th>
+            <th>内容</th>
+            <th>扱い方</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>実人口ベース</td>
+            <td>人口数、年齢、性別、22〜60歳人口</td>
+            <td>公開人口データに合わせた土台として使う</td>
+          </tr>
+          <tr>
+            <td>構造推定</td>
+            <td>世帯タイプ、夫婦・親子リンク、代理意思決定、教育段階、介護文脈</td>
+            <td>年齢差や生活文脈に矛盾しにくいように設計した推定属性として扱う</td>
+          </tr>
+          <tr>
+            <td>反応仮説</td>
+            <td>支払い意思、デジタル感度、価値観、拒否理由、悩み</td>
+            <td>売上予測ではなく、仮説探索・セグメント比較・MVP優先順位付けに使う</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>検証の流れ</h2>
+      <div class="steps">
+        <div class="step">サービス案を1〜3行で定義します。誰のどんな困りごとを解決するのかを明確にします。</div>
+        <div class="step">合成人口パネルに対して、利用意向、支払い意思、不安点、使わない理由を推定します。</div>
+        <div class="step">年齢、世帯、子どもの有無、職業、介護文脈などで反応差を見ます。</div>
+        <div class="step">反応が強い上位セグメントを選び、LP、診断、予約、マッチングなどのMVPに落とし込みます。</div>
+        <div class="step">AI上の反応を最終証拠とはせず、次に実在者へ確認すべき質問を整理します。</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>一言で説明するなら</h2>
+      <div class="quote">
+        新宮町の実人口構成に合わせた32,974人・14,581世帯の合成人口パネルを作り、誰が使い、誰が払い、誰が拒否するかをAIで比較しました。これは実測アンケートではなく、限られた時間で仮説の幅とセグメント差を見つけるための検証補助です。
+      </div>
+    </section>
+
+    <section>
+      <h2>このパネルの妥当性</h2>
+      <table>
+        <tbody>
+          <tr>
+            <th>人口の土台</th>
+            <td>年齢・性別・対象人口は新宮町の公開人口データに合わせています。AIが自由に作った架空の町ではありません。</td>
+          </tr>
+          <tr>
+            <th>世帯の考慮</th>
+            <td>個人だけでなく世帯IDを持たせ、夫婦、親子、単身、ひとり親、三世代、介護入口など、実際の意思決定に近い形で見られるようにしています。</td>
+          </tr>
+          <tr>
+            <th>利用者と支払い者の分離</th>
+            <td>子ども、高齢者、地域店舗、企業向けサービスでは、使う人と払う人が違うことがあります。そのズレを最初から見られる設計にしています。</td>
+          </tr>
+          <tr>
+            <th>拒否理由の重視</th>
+            <td>「使いたい人」だけでなく、「使わない人」「払わない人」「不安な人」を見ることで、MVPで何を削り、何を説明すべきかを判断します。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>よくある疑問への回答</h2>
+      <table class="qa-table">
+        <tbody>
+          <tr>
+            <th>Q1. 実在者に聞いていないなら、Validationとは言えないのでは？</th>
+            <td>実測アンケートそのものではありません。ここで行っているのは、Validationの前段階として「誰に検証すべきか」を絞る作業です。54時間で街頭の偶然サンプルだけに頼ると、時間帯・場所・声をかけやすい人に偏ります。そこで、まず実人口構成に合わせた合成人口で反応差と拒否理由を広く探索し、MVPや追加確認の対象を絞っています。</td>
+          </tr>
+          <tr>
+            <th>Q2. AIが作った回答は、都合よくサービスを褒めているだけでは？</th>
+            <td>サービスを褒めるためには使っていません。むしろ、使わない理由、払わない理由、不安点、導入条件を必ず出す設計にしています。AIの役割は「良さそうな話」を作ることではなく、どこで失敗しそうか、どの層には刺さらないかを早く見つけることです。</td>
+          </tr>
+          <tr>
+            <th>Q3. AIの支払い意思は信用できるのですか？</th>
+            <td>売上予測としては扱いません。支払い意思は仮説です。ただ、価格に敏感な層、便益が明確なら払う層、保護者や企業が支払い者になる層を分けることで、最初に検証すべき価格帯と支払い者を整理できます。数字を確定値として見るのではなく、価格検証の優先順位として使います。</td>
+          </tr>
+          <tr>
+            <th>Q4. ペルソナの偏りはどう防いでいますか？</th>
+            <td>完全には防げません。だから、属性ごとに信頼度を分けています。年齢・性別・人口規模は実人口由来、世帯や意思決定は構造推定、支払い意思や拒否理由は反応仮説です。単一の答えを信じるのではなく、複数セグメントの差分と拒否理由を見ることで、偏りの影響を小さくしています。</td>
+          </tr>
+          <tr>
+            <th>Q5. 実人口に合わせたと言っても、世帯構成や職業は本物ではないですよね？</th>
+            <td>はい、本物の個人データではありません。世帯構成や職業は合成推定です。ただし、年齢・性別の実人口に、世帯、親子、介護、保護者決定、通勤、移動、支払い感度などを矛盾しにくい形で接続しています。重要なのは、実在個人を再現することではなく、検証で見落としやすい生活者パターンを広く比較することです。</td>
+          </tr>
+          <tr>
+            <th>Q6. 街頭インタビューよりAIパネルを優先する理由は何ですか？</th>
+            <td>街頭インタビューを否定しているわけではありません。ただ、短時間の街頭調査は、聞けた人の属性に強く偏ります。AIパネルは、子育て世帯、高齢者、地元事業者、通勤者、ITが苦手な層などを同時に比較できます。先に広く見てから、実際に聞くべき相手を絞る方が、54時間では効率が高いと考えています。</td>
+          </tr>
+          <tr>
+            <th>Q7. AIを使うこと自体が差別化になるのですか？</th>
+            <td>AIを使うこと自体は差別化ではありません。差別化は、AIによって検証速度を上げ、ターゲット、拒否理由、MVP、価格仮説を短時間で何度も更新できることです。AIは答えを出す装置ではなく、意思決定の速度と検証範囲を広げる道具として使っています。</td>
+          </tr>
+          <tr>
+            <th>Q8. AIの結果が間違っていたらどうしますか？</th>
+            <td>間違う前提で使っています。だからAIの出力を結論として採用するのではなく、仮説、リスク、追加で確認すべき質問に分解します。AIが出した「使わない理由」や「不安点」をMVPに反映し、次に実在者や関係者へ確認する材料にします。</td>
+          </tr>
+          <tr>
+            <th>Q9. それは机上の空論ではありませんか？</th>
+            <td>机上の空論で終わらせないために、合成人口で強く反応したセグメントに合わせてMVPを作ります。たとえば、LP、診断、予約、マッチングなど、利用者が価値を判断できる画面に落とし込みます。AIの分析だけで終わらず、顧客が見て判断できる形に変換することを重視しています。</td>
+          </tr>
+          <tr>
+            <th>Q10. どの結果を信じて、どの結果を疑うのですか？</th>
+            <td>年齢・性別・人口規模は土台として信じます。世帯や意思決定構造は、検証対象を広げるための推定として扱います。支払い意思、利用意向、拒否理由は仮説として疑いながら使います。つまり、AIの答えを信じるのではなく、どこを次に検証すべきかを見つけるために使います。</td>
+          </tr>
+          <tr>
+            <th>Q11. この方法は実際の事業判断にも使えるのですか？</th>
+            <td>最終判断には実データが必要です。ただ、初期の事業仮説づくりには有効です。誰が使いそうか、誰が払うか、導入の障害は何か、最初に狙う市場はどこかを短時間で整理できます。実データがまだない段階で、検証の順番を間違えないための方法です。</td>
+          </tr>
+          <tr>
+            <th>Q12. このチームはAIに頼りすぎていませんか？</th>
+            <td>AIに任せているのではなく、AIを使って人間の意思決定を速くしています。最終的に何を残し、何を捨て、どのMVPを見せるかはチームが判断します。AIは大量の生活者パターンを素早く比較するための補助であり、事業判断の責任は人間が持つ前提です。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>限界も明示します</h2>
+      <div class="note">
+        AI合成人口パネルは、実在顧客の購買証明ではありません。強みは、仮説検証の範囲と速度を広げることです。発表では「AIが正解を出した」ではなく、「AIで検証すべき相手とMVPの優先順位を絞った」と説明します。
+      </div>
+    </section>
+  </main>
+</body>
+</html>
