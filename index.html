@@ -247,6 +247,36 @@
       width: 280px;
       white-space: normal;
     }
+    @media (max-width: 640px) {
+      .qa-table {
+        border: 0;
+        background: transparent;
+        overflow: visible;
+      }
+      .qa-table tbody,
+      .qa-table tr,
+      .qa-table th,
+      .qa-table td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .qa-table tr {
+        margin-bottom: 12px;
+        border: 1px solid #dfe5ec;
+        border-radius: 8px;
+        background: #ffffff;
+        overflow: hidden;
+      }
+      .qa-table th {
+        border-bottom: 1px solid #e6ebf0;
+        padding: 14px 16px;
+      }
+      .qa-table td {
+        border-bottom: 0;
+        padding: 14px 16px 16px;
+      }
+    }
     @media (max-width: 900px) {
       header {
         grid-template-columns: 1fr;
